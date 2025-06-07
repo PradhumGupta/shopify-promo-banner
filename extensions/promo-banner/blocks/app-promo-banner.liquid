@@ -1,0 +1,30 @@
+<style>
+  #free-shipping-banner {
+    width: 100vw;
+    background-color: #ffe100;
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 1000;
+  }
+</style>
+
+<div id="free-shipping-banner">
+  🎉 Free Shipping on All Orders! 🎉
+</div>
+
+{% schema %}
+{
+  "name": "Promo Banner", /* Shorter name for a block (<=25 chars) */
+  "target": "section", /* Indicates this block can be placed inside a section */
+  "settings": [ /* Optional: if you want configurable options, add them here */
+    {
+      "type": "checkbox",
+      "id": "show_banner",
+      "label": "Show banner",
+      "default": true
+    }
+  ]
+}
+{% endschema %}
