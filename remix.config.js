@@ -12,6 +12,12 @@ if (
 
 /** @type {import('@remix-run/dev').AppConfig} */
 module.exports = {
+  serverBuildTarget: "vercel",
+  server: "./server.js", // required for Vercel SSR
+
+  assetsBuildDirectory: "build/client",
+  publicPath: "/build/",
+  serverBuildPath: "build/server/index.js",
   ignoredRouteFiles: ["**/.*"],
   appDirectory: "app",
   serverModuleFormat: "cjs",
