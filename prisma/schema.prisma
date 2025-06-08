@@ -8,19 +8,26 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// your-app-name/prisma/schema.prisma
+
 model Session {
   id          String    @id @db.VarChar(255)
   shop        String    @db.VarChar(255)
   state       String    @db.VarChar(255)
   isOnline    Boolean   @default(false)
   scope       String?   @db.VarChar(255)
-  expires     DateTime? @db.Timestamp(6) 
+  expires     DateTime? @db.Timestamp(6)
   accessToken String    @db.VarChar(255)
   userId      BigInt?
   firstName   String?   @db.VarChar(255)
   lastName    String?   @db.VarChar(255)
   email       String?   @db.VarChar(255)
   accountOwner Boolean? @default(false)
+
+  // Add these new fields:
+  locale      String?   @db.VarChar(255) // The error specifically mentioned 'locale'
+  collaborator Boolean? @default(false) // The error mentioned 'collaborator'
+  emailVerified Boolean? @default(false) // The error mentioned 'emailVerified'
 
   @@map("session")
 }
